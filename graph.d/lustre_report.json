@@ -1,0 +1,13 @@
+{
+ "report_name" : "lustre_report",
+ "report_type" : "standard",
+ "title" : "Lustre Report",
+ "vertical_label" : "threads",
+ "series" : [
+ { "metric": "lustre.mgc_count", "color": "33cc33", "label": "MGC thr", "line_width": "2", "type": "line" },
+ { "metric": "lustre.mdc_count", "color": "5555cc", "label": "MDC thr", "line_width": "2", "type": "line" },
+ { "metric": "lustre.mds_count", "color": "55cc55", "label": "MDS thr", "line_width": "2", "type": "line" },
+ { "metric": "lustre.osc_count", "color": "f0e8d8", "label": "OSC thr", "line_width": "2", "type": "line" },
+ { "metric": "lustre.ost_count", "color": "3333cc", "label": "OST thr", "line_width": "2", "type": "line" }
+ ]
+}

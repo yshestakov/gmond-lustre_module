@@ -1,0 +1,71 @@
+modules {
+  module {
+    name = "lustre"
+    language = "python"
+    param fs_name {
+        value = fs1
+    }
+    param report_mds {
+        value = True
+    }
+    param report_oss {
+        value = True
+    }
+    param report_osc {
+        value = False
+    }
+  }
+}
+
+collection_group {
+  collect_once = yes
+  time_threshold = 20
+  metric {
+    name = "lustre.version"
+    title = "Lustre version"
+  }
+  metric {
+    name = "lustre.kernel_build"
+    title = "Lustre kernel build"
+  }
+}
+
+collection_group {
+  collect_every = 60
+  time_threshold = 120
+  metric {
+    name = "lustre.is_mgs"
+    title = "Is Lustre MGS server"
+  }
+  metric {
+    name_match = "lustre\.(.+)_num"
+  }
+  metric {
+    name_match = "lustre\.(.+)_count"
+  }
+}
+
+collection_group {
+  collect_every = 15
+  time_threshold = 30
+  metric {
+    name_match = "lustre.(mgs|oss).([a-z0-9_]+)"
+  }
+}
+
+
+collection_group {
+  collect_every = 15
+  time_threshold = 30
+  metric {
+    name_match = "lustre.mdt.([a-zA-Z0-9_-]+).([a-z_]+)"
+  }
+}
+
+collection_group {
+  collect_every = 15
+  time_threshold = 60
+  metric {
+    name_match = "lustre\.(mgc|mdc|ost|osc)\..+"
+  }
+}
